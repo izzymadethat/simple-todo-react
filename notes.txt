@@ -1,0 +1,44 @@
+TODO List Builder
+
+Components
+- wrapper - wrap everything in the section 
+- Header - just stores logo
+- TODOHero - show todos completed/total todos
+- TodoForm 
+- TodoList - shows array of todos
+
+CSS
+
+colors
+bg: #0d0d0d
+white: #fff
+accent: #c2b39a
+primary: #88ab33
+
+Input
+bg: #1f2937
+color: #fff
+
+text_large: 32px
+text_small: 24px
+
+
+wrapper {
+display: flex
+flex-direction: column
+width: 70%
+}
+
+const [todos, setTodos] = useState([]);
+
+const todosCompleted = todos.filter(todo => todo.is_completed === true).length;
+const totalTodos = todos.length
+
+const handleSubmit = (event) => {
+	event.preventDefault()
+	const todo = event.target.todo.value
+	setTodos((prevTodos) => [...prevTodos, {title: todo, id: uuid(), is_Completed: false}])
+	event.target.reset()
+}
+
+ToDoItem({item})
